@@ -18,9 +18,9 @@ int check_cycle(listint_t *list)
 	{
 		rapido = rapido->next;
 		rapido = rapido->next;
-		slow = slow->next;
+		normal = normal->next;
 
-		if (normal = rapido)
+		if (normal == rapido)
 			return (1);
 	}
 
