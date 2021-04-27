@@ -4,4 +4,3 @@ for i in range(10):
         if j > i and i is not 8:
             print("{}{}".format(i, j), end=", ")
 print("89")
-
