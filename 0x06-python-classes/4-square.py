@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-class Square:
-    """Square Class
-    A Square Class
-    """
+"""
+A Square Class
+"""
 
+
+class Square:
+    """ represents a square """
     def __init__(self, size=0):
         """__init__
         The __init__ method initializes the size of the square.
