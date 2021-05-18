@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+A group of classes
+"""
+
+
 class Node:
     """ Node class """
     def __init__(self, data, next_node=None):
