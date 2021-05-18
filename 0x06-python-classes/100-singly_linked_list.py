@@ -43,4 +43,12 @@ class Node:
             self.__next_node = value
 
 class SinglyLinkedList:
-    pass
+    """ Singly linked list class """
+    def __init__(self):
+        """ initialize private instance Node `__head` """
+        self.__head = None
+
+    def sorted_insert(self, value):
+        """ insert new node into singly linked list """
+        new = Node(value, self.__head)
+        prev = None
