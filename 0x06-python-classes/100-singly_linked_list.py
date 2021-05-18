@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 class Node:
-    """ `Square` class """
+    """ Node class """
     def __init__(self, data, next_node=None):
         """ Initializes private instance
             positive integer `__data` and `__next_node` """
@@ -41,3 +41,6 @@ class Node:
             raise TypeError("next_node must be a Node object")
         else:
             self.__next_node = value
+
+class SinglyLinkedList:
+    pass
