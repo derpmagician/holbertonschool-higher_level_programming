@@ -8,7 +8,7 @@ class MagicClass:
         """Initialization
 
         Args:
-            radius (int/float)"""
+            radius (int/float): attribute"""
         self.__radius = 0
 
         if type(radius) is not int and type(radius) is not float:
@@ -17,9 +17,9 @@ class MagicClass:
         self.__radius = radius
 
     def area(self):
-        """."""
+        """Area: area"""
         return self.__radius ** 2 * math.pi
 
     def circumference(self):
-        """."""
+        """Circumference: circumference"""
         return 2 * math.pi * self.__radius
