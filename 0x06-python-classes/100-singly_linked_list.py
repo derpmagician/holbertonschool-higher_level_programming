@@ -58,3 +58,20 @@ class SinglyLinkedList:
         """ insert new node into singly linked list """
         new = Node(value, self.__head)
         prev = None
+         if new.next_node is None or new.data <= self.__head.data:
+            self.__head = new
+        else:
+            while new.next_node and new.data > new.next_node.data:
+                prev = new.next_node
+                new.next_node = prev.next_node
+            if prev:
+                prev.next_node = new
+
+    def __str__(self):
+        """ string representation singly linked list """
+        output = []
+        head = self.__head
+        while head is not None:
+            output.append(str(head.data))
+            head = head.next_node
+        return '\n'.join(output)
