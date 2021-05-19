@@ -3,6 +3,7 @@
 
 
 class MagicClass:
+    """"Class for Area of a circle"""
     def __init__(self, radius=0):
         self.__radius = 0
 
