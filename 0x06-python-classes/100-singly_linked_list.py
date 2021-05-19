@@ -5,7 +5,7 @@ A group of classes
 
 
 class Node:
-    """ Node class """
+    """ `Square` class """
     def __init__(self, data, next_node=None):
         """ Initializes private instance
             positive integer `__data` and `__next_node` """
@@ -58,7 +58,7 @@ class SinglyLinkedList:
         """ insert new node into singly linked list """
         new = Node(value, self.__head)
         prev = None
-         if new.next_node is None or new.data <= self.__head.data:
+        if new.next_node is None or new.data <= self.__head.data:
             self.__head = new
         else:
             while new.next_node and new.data > new.next_node.data:
