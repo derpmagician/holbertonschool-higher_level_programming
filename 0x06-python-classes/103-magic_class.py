@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """MagiClass"""
-
+import math
 
 class MagicClass:
     """"Class for Area of a circle"""
