@@ -5,6 +5,10 @@
 class MagicClass:
     """"Class for Area of a circle"""
     def __init__(self, radius=0):
+        """Initialization
+
+        Args:
+            radius (int/float)"""
         self.__radius = 0
 
         if type(radius) is not int and type(radius) is not float:
