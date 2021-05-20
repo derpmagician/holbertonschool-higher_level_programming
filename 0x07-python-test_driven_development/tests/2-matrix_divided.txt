@@ -6,8 +6,8 @@ Import module:
     >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
 
-Test
-====
+Tests:
+======
 
 Test case #0: A test case without parameters
 
