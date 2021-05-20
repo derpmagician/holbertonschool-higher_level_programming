@@ -15,11 +15,11 @@ class TestMaxInteger(unittest.TestCase):
         Test the max integer in a list for positive or negative numbers
         """
         self.assertIsNone(max_integer([]))
-        self.assertAlmostEqual(max_integer([1, 2, 3, 4, 5]), 5)
-        self.assertAlmostEqual(max_integer([-4, -3, -2, -1, 0]), 0)
-        self.assertAlmostEqual(max_integer([-90, -120, -150, -180]), -90)
+        self.assertAlmostEqual(max_integer([0, 2, 3, 4, 100]), 100)
+        self.assertAlmostEqual(max_integer([-100, -3, -2, -1, 0]), 0)
+        self.assertAlmostEqual(max_integer([-10, -120, -150, -180]), -10)
         self.assertAlmostEqual(max_integer([1.0, 1.5, 1.6, 3.7, 2.3]), 3.7)
-        self.assertAlmostEqual(max_integer([7.7]), 7.7)
+        self.assertAlmostEqual(max_integer([1.7]), 1.7)
 
     def test_wrong_types(self):
         """
