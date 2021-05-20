@@ -114,3 +114,15 @@ class Square:
 
             if j % self.__size == 0 and j > 0:
                 print()
+
+    def __str__(self):
+        str_rep = ""
+        if self.__size == 0:
+            str_rep = "\n"
+        else:
+            rang = range(self.__size)
+            str_rep = str_rep + '\n' * self.__position[1]
+            for _ in rang:
+                str_rep = str_rep + ' ' * self.__position[0]
+                str_rep = str_rep + '#' * self.__size + "\n"
+        return str_rep[:-1]
