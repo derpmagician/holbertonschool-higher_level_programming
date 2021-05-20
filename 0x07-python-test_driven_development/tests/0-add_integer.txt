@@ -1,13 +1,13 @@
-The ``0-add_integer`` module
-===============================
+For the "0-add_integer.py"  module:
+===================================
 
 Import module:
 ==============
     >>> add_integer = __import__('0-add_integer').add_integer
 
 
-Tests
-=====
+Tests:
+======
 
 Test case #0: A test case without parameters
 
