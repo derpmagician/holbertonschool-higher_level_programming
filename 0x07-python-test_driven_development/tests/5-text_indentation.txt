@@ -1,0 +1,98 @@
+For the "5-text_indentation.py" module
+======================================
+
+Import module:
+==============
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+Tests:
+======
+
+Test case #0: A test case without parameters
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Test case #1: A test case with a short text
+
+    >>> text_indentation("Short Text")
+    Short Text
+
+Test case #2: A test case with a short text and a character for 2 new lines
+
+    >>> text_indentation("With character?")
+    With character?
+    <BLANKLINE>
+
+Test case #3: A test case with a short text and characters for 6 new lines
+
+    >>> text_indentation("Hey you. Are you reading this? Reasons to live:")
+    Hey You.
+    <BLANKLINE>
+    Are you reading this?
+    <BLANKLINE>
+    Reasons to live:
+    <BLANKLINE>
+
+Test case #4: A test case with a text with a special format
+
+    >>> text_indentation("""Don't think so hard. \
+    ... Mirror, mirror on the wall, who's the fairest of them all? \
+    ... Thou, O Queen, art the fairest in the land""")
+    Don't think so hard.
+    <BLANKLINE>
+    Mirror, mirror on the wall, who's the fairest of them all?
+    <BLANKLINE>
+    Thou, O Queen, art the fairest in the land
+
+Test case #5: A test case with only spaces and characters to prints newlines
+
+    >>> text_indentation("   ?:.   ")
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+
+Test case #6: Another test case with only spaces and characters to prints newlines
+
+    >>> text_indentation("  .??:?.  ")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+
+Test case #7: A test case with an integer parameter
+
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+Test case #8: A test case with an boolean parameter
+
+    >>> text_indentation(True)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+Test case #9: A test case with a data type parameter
+
+    >>> text_indentation(str)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+Test case #10: A test case with an infinite float number
+
+    >>> text_indentation(1e200)
+    Traceback (most recent call last):
+    TypeError: text must be a string
