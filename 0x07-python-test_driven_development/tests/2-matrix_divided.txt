@@ -1,5 +1,5 @@
-The "2-matrix_divided.py" module
-================================
+For the "2-matrix_divided.py" module
+====================================
 
 Import module:
 ==============

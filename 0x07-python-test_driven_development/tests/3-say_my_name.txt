@@ -1,5 +1,5 @@
-The "3-say_my_name.py" module:
-==============================
+For the "3-say_my_name.py" module:
+==================================
 
 Import module:
 ==============
