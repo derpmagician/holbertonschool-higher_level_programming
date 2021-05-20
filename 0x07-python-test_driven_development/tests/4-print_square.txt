@@ -62,7 +62,7 @@ Test case #5: A test case with a infinite negative float parameter
 
 Test case #6: A test case with a string as parameter
 
-    >>> print_square("This is a string)
+    >>> print_square("This is a string")
     Traceback (most recent call last):
     TypeError: size must be an integer
 
