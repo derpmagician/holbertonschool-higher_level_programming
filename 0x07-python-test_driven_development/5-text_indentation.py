@@ -7,13 +7,6 @@ Example:
     $
     Quonam modo?$
     $
-    Utrum igitur tibi litteram videor an totas paginas commovere?$
-    $
-    Non autem hoc:$
-    $
-    * text must be a string
-    * There should be no space at the beginning or
-    at the end of each printed line
 """
 
 
@@ -32,14 +25,14 @@ def text_indentation(text):
     text_length = len(text)
     idx = 0
     new_string = ''
-    starting = True
+    start = True
 
     while idx < text_length:
-        if text[idx] == ' ' and starting is True:
+        if text[idx] == ' ' and start is True:
             idx += 1
             continue
 
-        starting = False
+        start = False
 
         if text[idx] in '.?:':
             new_string += text[idx]
