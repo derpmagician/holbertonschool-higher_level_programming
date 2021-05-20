@@ -9,8 +9,7 @@ def matrix_divided(matrix, div):
     """
     This function verify that the matrix contains
     integer or floating type numbers.
-    The result of the splitting operation is then added to a
-    new list in a new matrix.
+    The result a new list in a new matrix.
     Args:
         matrix (:obj:`list` of :obj:`list`): The matrix to be divided.
         div (int): The divisor number.
@@ -96,7 +95,7 @@ def check_for_number(value):
 
 def check_row_size_inconsistency(elem_sizes, row):
     """
-    Check if all rows in the matrix are inconsistently sized
+    Check if rows in matrix are inconsistently sized
     Args:
         elem_sizes (:obj:`set` of :obj:`int`): Size of each row matrix.
         row (list): A row with elements to divide.
