@@ -29,7 +29,7 @@ Test case #2: A test case with a short text and a character for 2 new lines
 Test case #3: A test case with a short text and characters for 6 new lines
 
     >>> text_indentation("Hey you. Are you reading this? Reasons to live:")
-    Hey You.
+    Hey you.
     <BLANKLINE>
     Are you reading this?
     <BLANKLINE>
