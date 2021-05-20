@@ -7,38 +7,49 @@ A Square Class
 class Square:
     """ represents a square """
     def __init__(self, size=0):
-        """__init__
-        The __init__ method initializes the size of the square.
-        Attributes:
-            size (:obj:`int`, optional): The size of the square.
-        Raises:
-            TypeError: If `size` type is not `int`.
-            ValueError: If `size` is less than `0`.
-        """
-
-        if type(size) is not int:
-            raise TypeError('size must be an integer')
-
-        if size < 0:
-            raise ValueError('size must be >= 0')
-
+        """Size is a private attribute"""
         self.size = size
+
+    def __gt__(self, other):
+        """ > """
+        return self.area() > other.area()
+
+    def __ge__(self, other):
+        """ >= """
+        return self.area() >= other.area()
+
+    def __le__(self, other):
+        """ <= """
+        return self.area() <= other.area()
+
+    def __lt__(self, other):
+        """ <  """
+        return self.area() < other.area()
+
+    def __eq__(self, other):
+        """ Method == """
+        return self.area() == other.area()
+
+    def __ne__(self, other):
+        """ Method != """
+        return self.area() != other.area()
 
     @property
     def size(self):
+        """Property of size"""
         return self.__size
 
     @size.setter
-    def size(self, size):
-        if type(size) is not int:
-            raise TypeError('size must be an integer')
-
-        if size < 0:
-            raise ValueError('size must be >= 0')
-
-        self.__size = size
+    def size(self, new_size):
+        """setter of size"""
+        if not isinstance(new_size, int):
+            raise TypeError("size must be an integer")
+        elif new_size < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = new_size
 
     def area(self):
-        """Returns the current square area
-        """
-        return self.__size ** 2
+        """Public instance method:
+           * Return: the current square area"""
+        return(self.__size * self.__size)
