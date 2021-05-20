@@ -17,8 +17,10 @@ class TestMaxInteger(unittest.TestCase):
         self.assertIsNone(max_integer([]))
         self.assertAlmostEqual(max_integer([0, 2, 3, 4, 100]), 100)
         self.assertAlmostEqual(max_integer([-100, -3, -2, -1, 0]), 0)
+        self.assertAlmostEqual(max_integer([-100, 30, -2, -1, 0]), 30)
         self.assertAlmostEqual(max_integer([-10, -120, -150, -180]), -10)
-        self.assertAlmostEqual(max_integer([1.0, 1.5, 1.6, 3.7, 2.3]), 3.7)
+        self.assertAlmostEqual(max_integer([1.0, 1.5, 1.1, 30.7, 2.3]), 30.7)
+        self.assertAlmostEqual(max_integer([1.0, 0.0, 2, 30.7, 2.3]), 30.7)
         self.assertAlmostEqual(max_integer([1.7]), 1.7)
 
     def test_wrong_types(self):
