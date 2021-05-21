@@ -21,29 +21,48 @@ def lazy_matrix_mul(m_a, m_b):
         ValueError: If m_a or m_b can't be multiplied.
     """
 
-    check_for_list(m_a)
-    check_for_list(m_b)
-    return numpy.matmul(m_a, m_b)
+    m_a_empty = False
+    m_b_empty = False
+    m_a_notrect = False
+    m_b_notrect = False
+    m_a_notnum = False
+    m_b_notnum = False
+    m_a_scalar = False
+    m_b_scalar = False
+    for row in m_a:
+        if not isinstance(row, list):
+            m_a_scalar = True
+        if len(row) != len(m_a[0]):
+            m_a_notrect = True
+        for num in row:
+            if not isinstance(num, (int, float)):
+                m_a_notnum = True
 
+    for row in m_b:
+        if not isinstance(row, list):
+            m_b_scalar = True
+        if len(row) != len(m_b[0]):
+            m_b_notrect = True
+        for num in row:
+            if not isinstance(num, (int, float)):
+                m_b_notnum = True
 
-def check_for_list(value):
-    """
-    Check if the value is of type list
-    Args:
-        value (any): The value to verify.
-    Raises:
-        TypeError: If `value` isn't a list.
-    """
+    if m_a_scalar:
+        raise TypeError("Scalar operands are not allowed, use '*' instead")
 
-    if type(value) is not list or len(value) == 0:
-        raises_matrix_type_error()
+    if m_b_scalar:
+        raise TypeError("Scalar operands are not allowed, use '*' instead")
 
+    if m_a_notnum:
+        raise TypeError("invalid data type for einsum")
 
-def raises_matrix_type_error():
-    """
-    Raises:
-        TypeError: If `matrix` list of lists of integers or floats.
-    """
+    if m_b_notnum:
+        raise TypeError("invalid data type for einsum")
 
-    raise TypeError('matrix must be a matrix \
-(list of lists) of integers/floats')
+    if m_a_notrect:
+        raise ValueError("setting an array element with a sequence.")
+
+    if m_b_notrect:
+        raise ValueError("setting an array element with a sequence.")
+
+    return numpy.matrix(m_a) * numpy.matrix(m_b)
