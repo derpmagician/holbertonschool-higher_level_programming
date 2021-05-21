@@ -22,5 +22,29 @@ def lazy_matrix_mul(m_a, m_b):
         ValueError: If m_a or m_b can't be multiplied.
     """
 
-
+    check_for_list(m_a)
+    check_for_list(m_b)
     return numpy.matmul(m_a, m_b)
+
+
+def check_for_list(value):
+    """
+    Check if the value is of type list
+    Args:
+        value (any): The value to verify.
+    Raises:
+        TypeError: If `value` isn't a list.
+    """
+
+    if type(value) is not list or len(value) == 0:
+        raises_matrix_type_error()
+
+def raises_matrix_type_error():
+    """
+    Raises:
+        TypeError: If `matrix` list of lists of integers or floats.
+    """
+
+    raise TypeError('matrix must be a matrix \
+(list of lists) of integers/floats')
+
