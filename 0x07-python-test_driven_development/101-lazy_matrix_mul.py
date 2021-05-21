@@ -5,7 +5,6 @@ Defines lazy_matrix function
 import numpy
 
 
-
 def lazy_matrix_mul(m_a, m_b):
     """Multiplies one matrix by another.
     Args:
@@ -39,6 +38,7 @@ def check_for_list(value):
     if type(value) is not list or len(value) == 0:
         raises_matrix_type_error()
 
+
 def raises_matrix_type_error():
     """
     Raises:
@@ -47,4 +47,3 @@ def raises_matrix_type_error():
 
     raise TypeError('matrix must be a matrix \
 (list of lists) of integers/floats')
-
