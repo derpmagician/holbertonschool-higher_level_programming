@@ -1,0 +1,39 @@
+For the "101-lazy_matrix_mul.py" module
+==================================
+
+Import module:
+==============
+    >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+
+Tests:
+======
+
+Test case #0: A test case without parameters
+
+    >>> lazy_matrix_mul()
+	Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+Test case #1: A test case with 2 list of lenght 2
+
+    >>> lazy_matrix_mul([[1, 2], [3, 4]])
+	Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+Test case #2: A test case with a lot of parameters
+
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]], [[9, 10], [11, 12]])
+    Traceback (most recent call last):
+    TypeError: lazy_matrix_mul() takes 2 positional arguments but 3 were given
+
+Test case #3: A test case with ints and floats
+
+    >>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1.5, 2.5, 3.5], [4.5, 6.5, 7.5]]))
+	[[ 10.5  15.5  18.5]
+	 [ 22.5  33.5  40.5]]
+
+Test case #4: A test case None as m_a:
+    >>> lazy_matrix_mul(None, [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+    TypeError: Object arrays are not currently supported
