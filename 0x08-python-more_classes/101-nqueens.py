@@ -19,6 +19,18 @@ def nqueens(n, c=[]):
         n_queens(n, s)
         s = next_candidate(n, s)
 
+def rejected(n, c):
+    """
+    Checks if is not part of the answer
+    """
+    return False
+
+def accepted(n, c):
+    """
+    Adds to the list of answers
+    """
+    return None
+
 if __name__ == "__main__":
     import sys
 
