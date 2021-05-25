@@ -4,39 +4,35 @@ N queens
 """
 
 
-def check_if_number():
+def nqueens(n, c=[]):
     """
-    check if n is a number
+    Args:
+        n (int): size of board and number of queens.
+        c (list): list of possible solutions
     """
-    for i in sys.argv[1]:
-        if i < '0' or i > '9':
-            print("N must be a number")
-            exit(1)
+    if rejected(n, c):
+        return
+    if accepted(n, c):
+        print(c)
+    s = first_candidate(n, c)
+    while s is not None:
+        n_queens(n, s)
+        s = next_candidate(n, s)
 
-def check_if_4_big():
-    """
-    check if is 4 or more
-    """
-    if int(sys.argv[1]) < 4:
-        print("N must be at least 4")
-        exit(1)
-
-def check_valid_n():
-    """
-    Checks if is a valid number
-    """
-
-    check_if_number()
-    check_if_4_big()
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     import sys
 
     if len(sys.argv) != 2:
-        print("Usage: nqueens N")
+        print('Usage: nqueens N')
         exit(1)
-
-    check_valid_n()
-
-
+    n = sys.argv[1]
+    if not n.isdigit():
+        print('N must be a number')
+        exit(1)
+    n = int(n)
+    if n < 4:
+        print('N must be at least 4')
+        exit(1)
+    n_queens(n)
+    exit(0)
+© 2021 GitHub, Inc.
