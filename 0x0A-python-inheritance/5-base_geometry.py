@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-class Geometry:
+class BaseGeometry:
     pass
