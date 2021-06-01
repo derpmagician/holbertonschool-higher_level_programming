@@ -1,8 +1,3 @@
-"""
-A class with a not implemented method
-"""
-
-
 #!/usr/bin/python3
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 

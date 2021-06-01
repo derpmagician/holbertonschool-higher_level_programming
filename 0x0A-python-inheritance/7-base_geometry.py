@@ -1,8 +1,3 @@
-"""
-A class with a not implemented method
-"""
-
-
 #!/usr/bin/python3
 class BaseGeometry:
     """

@@ -1,9 +1,9 @@
-"""
-A class with a not implemented method
-"""
-
-
 #!/usr/bin/python3
+"""
+The superclass of the geometries
+"""
+
+
 class BaseGeometry:
     """
     A super class that implements geometrical shapes
