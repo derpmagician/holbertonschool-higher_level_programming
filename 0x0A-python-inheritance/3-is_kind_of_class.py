@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""
+"""
 "Define is_kind_f_class function
 """
 
