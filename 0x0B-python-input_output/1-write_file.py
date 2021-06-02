@@ -2,7 +2,7 @@
 """Function to write text"""
 
 
-def number_of_lines(filename=""):
-    """ writes a string to a text file and returns the len of chars"""
-    with open(filename, encoding='utf-8') as f:
-        return len(f.readlines())
+def write_file(filename="", text=""):
+    """function that writes a string to a text file"""
+    with open(filename, 'w', encoding="utf-8") as f:
+        return(f.write(text))
