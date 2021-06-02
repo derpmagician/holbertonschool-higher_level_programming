@@ -9,4 +9,4 @@ def add_attribute(object, attribute, value):
     if hasattr(object, "__dict__"):
         setattr(object, attribute, value)
     else:
-        raise TypeError("can't add new attribute"
+        raise TypeError("can't add new attribute")
