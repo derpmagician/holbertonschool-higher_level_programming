@@ -4,7 +4,6 @@ Define class BaseGeometry
 """
 
 
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
 Rectangle = __import__('9-rectangle').Rectangle
 
 
@@ -18,4 +17,5 @@ class Square(Rectangle):
         self.__size = size 
 
     def area(self):
+        """"Returns the area of the square"""
         return self.__size ** 2
