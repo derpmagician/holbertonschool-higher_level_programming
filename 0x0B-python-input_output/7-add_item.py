@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module that adds args to a list then rewrites 
+"""Module that adds args to a list then rewrites
 the list into the file as JSON"""
 
 from sys import argv
