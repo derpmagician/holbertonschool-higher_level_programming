@@ -13,14 +13,12 @@ class Student:
         class_d = self.__dict__
         sel_d = dict()
 
-        if type(attrs) is list:
-            for attr in attrs:
-                if type(attr) is not str:
-                    return class_d
-
-                if attr in class_d:
-                    sel_d[attr] = class_d[attr]
-
-            return sel_d
-
-        return class_d
+    def to_json(self, attrs=None):
+        """Returns a dictionary"""
+        if attrs is None:
+            return self.__dict__
+        my_dict = dict()
+        for attr in attrs:
+            if attr in self.__dict__:
+                my_dict[attr] = self.__dict__[attr]
+        return my_dict
