@@ -2,7 +2,7 @@
 """
 The rectangle module with base as the superclass
 """
-from base import Base
+from models.base import Base
 
 
 class Rectangle(Base):
