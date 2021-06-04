@@ -71,9 +71,25 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, v):
-        """__width` setter"""
+        """__width setter"""
         if type(v) is not int:
             raise TypeError("y must be an integer")
         if v < 0:
             raise ValueError("y must be >= 0")
         self.__y = v
+
+    def area(self):
+        """ Calculates area of rectangle """
+        return self.width * self.height
+
+    def display(self):
+        """ Displays rectangle using `#` character """
+
+        for row in range(self.y):
+            print()
+        for row in range(self.height):
+            print('{}{}'.format(' ' * self.x, '#' * self.width))
+
+    def __str__(self):
+        return '[Rectangle] ({}) {}/{} - {}/{}'.format(
+                            self.id, self.x, self.y, self.width, self.height)
