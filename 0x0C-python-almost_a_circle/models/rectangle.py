@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 The rectangle module with base as the superclass
 """
