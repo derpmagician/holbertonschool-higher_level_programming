@@ -83,19 +83,20 @@ class Base:
         from random import randint
         lists = list_rectangles + list_squares
         turtle.colormode(255)
-        turtle.bgcolor("blue")
+        turtle.bgcolor("#1c1c1c")
+        turtle.screensize(300, 300)
         t = turtle.Turtle()
         t.shape("turtle")
         t.color("#ffffff")
         j = -200
-        y = -255
+        y = -200
         for i in lists:
             t.pensize(0)
             t.color((randint(1, 255), randint(1, 255), randint(1, 255)))
             t.goto(j, y)
-            j += 70
-            y += 60
-            t.pensize(10)
+            j += 50
+            y += 50
+            t.pensize(5)
             for r in range(2):
                 t.back(i.width)
                 t.right(90)
