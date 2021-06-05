@@ -84,7 +84,6 @@ class Base:
         lists = list_rectangles + list_squares
         turtle.colormode(255)
         turtle.bgcolor("#1c1c1c")
-        turtle.screensize(300, 300)
         t = turtle.Turtle()
         t.shape("turtle")
         t.color("#ffffff")
