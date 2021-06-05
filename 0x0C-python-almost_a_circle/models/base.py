@@ -3,6 +3,7 @@
 The base module provides the Base class for the models module.
 """
 import json
+import csv
 
 
 class Base:
@@ -54,3 +55,52 @@ class Base:
             list_objs = [i.to_dictionary() for i in list_objs]
         with open(filename, "w", encoding="utf-8") as f:
             f.write(cls.to_json_string(list_objs))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        '''Loads object to csv file.'''
+        filename = cls.__name__ + ".csv"
+        from models.rectangle import Rectangle
+        from models.square import Square
+        new = []
+        with open(filename, 'r', newline='', encoding='utf-8') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                row = [int(r) for r in row]
+                if cls is Rectangle:
+                    d = {"id": row[0], "width": row[1], "height": row[2],
+                         "x": row[3], "y": row[4]}
+                else:
+                    d = {"id": row[0], "size": row[1],
+                         "x": row[2], "y": row[3]}
+                new.append(cls.create(**d))
+        return new
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        '''draw'''
+        import turtle
+        from random import randint
+        lists = list_rectangles + list_squares
+        turtle.colormode(255)
+        turtle.bgcolor("blue")
+        t = turtle.Turtle()
+        t.shape("turtle")
+        t.color("#ffffff")
+        j = -200
+        y = -255
+        for i in lists:
+            t.pensize(0)
+            t.color((randint(1, 255), randint(1, 255), randint(1, 255)))
+            t.goto(j, y)
+            j += 70
+            y += 60
+            t.pensize(10)
+            for r in range(2):
+                t.back(i.width)
+                t.right(90)
+                t.back(i.height)
+                t.right(90)
+            t.left(50)
+
+        turtle.exitonclick()
