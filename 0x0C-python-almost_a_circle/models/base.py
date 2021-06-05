@@ -27,7 +27,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """
-        Returns the JSON string repr
+        Returns the JSON string representation of list_dictionaries
         """
         if list_dictionaries is None or not len(list_dictionaries):
             return "[]"
@@ -36,8 +36,21 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """
-        Returns a list of jSON string repr
+        Returns a list of the JSON string representation json_string
         """
         if not isinstance(json_string, str) or len(json_string) == 0:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """
+        Writes the JSON string representation of list_objs to a file
+        The filename must be: <Class name>.json - example: Rectangle.json
+        You must use the static method to_json_string
+        """
+        filename = cls.__name__ + ".json"
+        if list_objs is not None:
+            list_objs = [i.to_dictionary() for i in list_objs]
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(cls.to_json_string(list_objs))
