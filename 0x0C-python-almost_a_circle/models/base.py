@@ -57,6 +57,23 @@ class Base:
             f.write(cls.to_json_string(list_objs))
 
     @classmethod
+    def create(cls, **dictionary):
+        ''' returns an instance with all attributes already set
+           a.**dictionary can be thought of as a double pointer to a dictionary
+           b.To use the update method to assign all attribute create dummy
+        '''
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if cls is Rectangle:
+            dummy = cls(1, 1)
+        elif cls is Square:
+            dummy = cls(1)
+        else:
+            dummy = None
+        dummy.update(**dictionary)
+        return dummy
+
+    @classmethod
     def load_from_file_csv(cls):
         """
         Loads object to csv file.
