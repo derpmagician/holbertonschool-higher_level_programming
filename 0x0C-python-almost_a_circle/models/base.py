@@ -48,7 +48,6 @@ class Base:
         """
         Writes the JSON string representation of list_objs to a file
         The filename must be: <Class name>.json - example: Rectangle.json
-        You must use the static method to_json_string
         """
         filename = cls.__name__ + ".json"
         if list_objs is not None:
@@ -58,10 +57,10 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        ''' returns an instance with all attributes already set
-           a.**dictionary can be thought of as a double pointer to a dictionary
-           b.To use the update method to assign all attribute create dummy
-        '''
+        """
+        returns an instance with all attributes already set
+        **dictionary can be thought of as a double pointer to a dictionary
+        """
         from models.rectangle import Rectangle
         from models.square import Square
         if cls is Rectangle:
