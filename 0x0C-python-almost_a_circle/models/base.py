@@ -58,7 +58,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """
-        returns an instance with all attributes already set
+        Returns an instance with all attributes already set
         **dictionary can be thought of as a double pointer to a dictionary
         """
         from models.rectangle import Rectangle
@@ -71,6 +71,18 @@ class Base:
             dummy = None
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Returns a list of instances
+        """
+        from os import path
+        filename = cls.__name__ + ".json"
+        if not path.isfile(filename):
+            return []
+        with open(filename, "r", encoding="utf-8") as f:
+            return [cls.create(**d) for d in cls.from_json_string(f.read())]
 
     @classmethod
     def load_from_file_csv(cls):
