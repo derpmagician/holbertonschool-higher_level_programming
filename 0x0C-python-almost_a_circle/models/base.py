@@ -58,12 +58,14 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        '''Loads object to csv file.'''
+        """
+        Loads object to csv file.
+        """
         filename = cls.__name__ + ".csv"
         from models.rectangle import Rectangle
         from models.square import Square
         new = []
-        with open(filename, 'r', newline='', encoding='utf-8') as f:
+        with open(filename, "r", newline="", encoding="utf-8") as f:
             reader = csv.reader(f)
             for row in reader:
                 row = [int(r) for r in row]
@@ -78,7 +80,9 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        '''draw'''
+        """
+        Draw
+        """
         import turtle
         from random import randint
         lists = list_rectangles + list_squares
@@ -101,7 +105,6 @@ class Base:
                 t.right(90)
                 t.back(i.height)
                 t.right(90)
-            t.pensize(0)
             t.left(-30)
 
         turtle.exitonclick()
