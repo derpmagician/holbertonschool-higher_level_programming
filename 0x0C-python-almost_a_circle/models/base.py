@@ -9,8 +9,7 @@ import csv
 class Base:
     """
     Uses private class attribute __nb_objects to manage the public instance
-    attribute id in all our future classes to avoid duplicated code
-    (by extension, same bugs).
+    attribute id in all our classes to avoid duplicated code or same bugs
     """
     __nb_objects = 0
 
@@ -99,7 +98,7 @@ class Base:
                              for o in list_objs]
         with open(filename, 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
-            writer.writerows(list_objs)    
+            writer.writerows(list_objs)
 
     @classmethod
     def load_from_file_csv(cls):
