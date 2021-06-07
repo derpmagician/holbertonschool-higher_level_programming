@@ -137,18 +137,21 @@ class Base:
         t.color("#ffffff")
         j = -200
         y = -200
+        t.pensize(5)
         for i in lists:
             t.color((randint(1, 255), randint(1, 255), randint(1, 255)))
-            t.pensize(0)
+            t.penup()
             t.goto(j, y)
             j += 50
             y += 50
-            t.pensize(7)
+            t.pendown()
             for r in range(2):
+                t.begin_fill()
                 t.back(i.width)
-                t.right(90)
+                t.left(90)
                 t.back(i.height)
-                t.right(90)
+                t.left(90)
+                t.end_fill()
             t.left(-30)
 
         turtle.exitonclick()
