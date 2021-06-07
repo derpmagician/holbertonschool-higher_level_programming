@@ -4,6 +4,7 @@ The base module provides the Base class for the models module.
 """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -127,7 +128,7 @@ class Base:
         """
         Draw
         """
-        import turtle
+        
         from random import randint
         lists = list_rectangles + list_squares
         turtle.colormode(255)
