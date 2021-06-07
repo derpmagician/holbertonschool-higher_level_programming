@@ -16,7 +16,7 @@ class Base:
     def __init__(self, id=None):
         """
         Initializes id with input value or increment __nb_objects and assign
-        its new value to `id`.
+        its new value to id.
         """
         if id is not None:
             self.id = id
