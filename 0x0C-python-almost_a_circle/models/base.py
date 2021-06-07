@@ -5,6 +5,7 @@ The base module provides the Base class for the models module.
 import json
 import csv
 import turtle
+from random import randint
 
 
 class Base:
@@ -128,22 +129,21 @@ class Base:
         """
         Draw
         """
-        
-        from random import randint
         lists = list_rectangles + list_squares
         turtle.colormode(255)
         turtle.bgcolor("#1c1c1c")
         t = turtle.Turtle()
         t.shape("turtle")
         t.color("#ffffff")
-        j = -200
+        x = -200
         y = -200
         t.pensize(5)
         for i in lists:
-            t.color((randint(1, 255), randint(1, 255), randint(1, 255)))
+            t.color((randint(1, 255), randint(1, 255), randint(1, 255)),
+                    (randint(1, 255), randint(1, 255), randint(1, 255)))
             t.penup()
-            t.goto(j, y)
-            j += 50
+            t.goto(x, y)
+            x += 50
             y += 50
             t.pendown()
             for r in range(2):
