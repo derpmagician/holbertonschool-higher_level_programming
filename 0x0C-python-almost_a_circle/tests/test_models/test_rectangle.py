@@ -472,3 +472,18 @@ class Test_Dictionary_Representation(unittest.TestCase):
         self.assertDictEqual(r2_dict, d)
 
         self.assertEqual(r1 == r2, False)
+
+
+    def test_width_valueerror(self):
+        """Test ints <= 0 for width"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r = Rectangle(-1, 1)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r = Rectangle(0, 1)
+
+    def test_height_valueerror(self):
+        """Test ints <= 0 for height"""
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r = Rectangle(1, -1)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            r = Rectangle(1, 0)
