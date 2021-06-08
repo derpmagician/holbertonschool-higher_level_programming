@@ -39,7 +39,7 @@ class Test_Rectangle_creation(unittest.TestCase):
         r2.id = 2
         self.assertEqual(r2.id, 2)
 
-    def test_instance(self):
+    def test_rectangle_instance(self):
         """Test if Rectangle is instance of Base"""
         r = Rectangle(5, 2, 1, 2, 20)
         self.assertEqual(type(r), Rectangle)
@@ -474,12 +474,16 @@ class Test_Dictionary_Representation(unittest.TestCase):
         self.assertEqual(r1 == r2, False)
 
 
-    def test_width_valueerror(self):
-        """Test ints <= 0 for width"""
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            r = Rectangle(-1, 1)
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            r = Rectangle(0, 1)
+class TestRectangle(unittest.TestCase):
+    """Test the functionality of the Rectangle class"""
+    @classmethod
+    def setUpClass(cls):
+        """"""
+        Base._Base__nb_objects = 0
+        cls.r1 = Rectangle(10, 10)
+        cls.r2 = Rectangle(2, 3, 4)
+        cls.r3 = Rectangle(5, 6, 7, 8, 9)
+        cls.r4 = Rectangle(11, 12, 13, 14)
 
     def test_height_valueerror(self):
         """Test ints <= 0 for height"""
