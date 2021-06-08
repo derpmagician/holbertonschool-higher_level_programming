@@ -5,8 +5,8 @@ Test differents behaviors of the Rectangle Class
 import unittest
 import pep8
 from io import StringIO
-from unittest.mock import patch
 import os
+from unittest.mock import patch
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -335,24 +335,28 @@ class Test_Update(unittest.TestCase):
         """pass valid and not valid kwargs to function"""
         self.set_nb_to_zero()
         r1 = Rectangle(2, 1, 10, 0)
-        r1.update(id=123, width=987, height=432, x=940, y=758, other='random', ok='rand val')
+        r1.update(id=123, width=987, height=432, x=940,
+                  y=758, other='random', ok='rand val')
         self.assertEqual(r1.id, 123)
         self.assertEqual(r1.width, 987)
         self.assertEqual(r1.height, 432)
         self.assertEqual(r1.x, 940)
         self.assertEqual(r1.y, 758)
 
-        with self.assertRaisesRegex(AttributeError, "'Rectangle' object has no attribute 'other'"):
+        with self.assertRaisesRegex(AttributeError,
+                                    "'Rectangle' object has no attribute 'other'"):
             self.assertEqual(r1.other, 'random')
-        
-        with self.assertRaisesRegex(AttributeError, "'Rectangle' object has no attribute 'ok'"):
+
+        with self.assertRaisesRegex(AttributeError,
+                                    "'Rectangle' object has no attribute 'ok'"):
             self.assertEqual(r1.ok, 'rand val')
 
     def test_args_and_kwargs(self):
         """pass args and kwargs to function"""
         self.set_nb_to_zero()
         r1 = Rectangle(2, 1, 10, 0)
-        r1.update(129, 234, id=123, width=987, height=432, x=940, y=758, other='random', ok='rand val')
+        r1.update(129, 234, id=123, width=987, height=432,
+                  x=940, y=758, other='random', ok='rand val')
         self.assertEqual(r1.id, 129)
         self.assertEqual(r1.width, 234)
         self.assertEqual(r1.height, 1)
@@ -361,7 +365,7 @@ class Test_Update(unittest.TestCase):
 
         with self.assertRaisesRegex(AttributeError, "'Rectangle' object has no attribute 'other'"):
             self.assertEqual(r1.other, 'random')
-        
+
         with self.assertRaisesRegex(AttributeError, "'Rectangle' object has no attribute 'ok'"):
             self.assertEqual(r1.ok, 'rand val')
 
@@ -377,7 +381,7 @@ class Test_Update(unittest.TestCase):
         # pass str
         with self.assertRaisesRegex(TypeError, 'width must be an integer'):
             r1.update(321, 'randval')
-        
+
         # pass float to update height
         with self.assertRaisesRegex(TypeError, 'height must be an integer'):
             r1.update(28, 3, 23.43, 342)
@@ -390,7 +394,7 @@ class Test_Update(unittest.TestCase):
         """pass iterable args to update function"""
         self.set_nb_to_zero()
         r1 = Rectangle(2, 1, 10, 0)
-        
+
         # pass list to update
         with self.assertRaisesRegex(TypeError, 'width must be an integer'):
             ls = [1, 2, 3]
@@ -408,14 +412,14 @@ class Test_Update(unittest.TestCase):
 
         # pass dict to update
         with self.assertRaisesRegex(TypeError, 'width must be an integer'):
-            ls = {'width': 1, 'x':2, 'y':3}
+            ls = {'width': 1, 'x': 2, 'y': 3}
             r1.update(2, ls)
 
     def test_args_invalid(self):
         """pass 2 args to update function"""
         self.set_nb_to_zero()
         r1 = Rectangle(2, 1, 10, 0)
-        
+
         with self.assertRaisesRegex(ValueError, 'height must be > 0'):
             r1.update(100, 200, -43)
 
@@ -441,12 +445,11 @@ class Test_Dictionary_Representation(unittest.TestCase):
         """Pass one argument to function call"""
         self.set_nb_to_zero()
         r1 = Rectangle(2, 1, 10, 0, 1)
-
         self.assertEquals(r1.id, 1)
-
-        with self.assertRaisesRegex(TypeError, "takes 1 positional argument but 2 were given"):
+        with self.assertRaisesRegex(TypeError,
+                                    "takes 1 positional argument but 2 were given"):
             r1.to_dictionary(239)
-    
+
     def test_ret_dict(self):
         """Test to_dictionary function"""
         r1 = Rectangle(23, 43, 129, 32, 2)
@@ -469,7 +472,3 @@ class Test_Dictionary_Representation(unittest.TestCase):
         self.assertDictEqual(r2_dict, d)
 
         self.assertEqual(r1 == r2, False)
-
-
-if __name__ == '__main__':
-    unittest.main()
