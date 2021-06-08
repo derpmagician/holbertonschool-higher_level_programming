@@ -9,6 +9,7 @@ import os
 import json
 from models import square
 from models.base import Base
+from models.rectangle import Rectangle
 from contextlib import redirect_stdout
 Square = square.Square
 
@@ -23,6 +24,29 @@ class testcases(unittest.TestCase):
         cls.c3 = Square(3, 4, 5)
         cls.c4 = Square(5, 6, 7)
         cls.c5 = Square(7, 8, 9, 10)
+        cls.c1.id = 1
+        cls.c2.id = 2
+        cls.c3.id = 3
+        cls.c4.id = 4
+        cls.c5.id = 10
+
+    def test_square_instance(self):
+        """Test if Square is instance of Rectangle and Base"""
+        s6 = Square(5, 2, 1, 20)
+        self.assertEqual(type(s6), Square)
+        self.assertTrue(type(s6) == Square)
+        self.assertFalse(type(s6) == Rectangle)
+        self.assertFalse(type(s6) == Base)
+        self.assertTrue(isinstance(s6, Base))
+        self.assertTrue(isinstance(s6, Rectangle))
+        self.assertTrue(isinstance(s6, Square))
+
+    def test_id(self):
+        self.assertEqual(self.c1.id, 1)
+        self.assertEqual(self.c2.id, 2)
+        self.assertEqual(self.c3.id, 3)
+        self.assertEqual(self.c4.id, 4)
+        self.assertEqual(self.c5.id, 10)
 
     def test_size(self):
         self.assertEqual(self.c1.size, 1)
@@ -137,6 +161,14 @@ class testcases(unittest.TestCase):
         """we just can call display, no pars args"""
         with self.assertRaises(TypeError):
             self.c1.display(1)
+
+    def test_str(self):
+        """testing __str__"""
+        self.assertEqual(str(self.c1), "[Square] (1) 0/0 - 1")
+        self.assertEqual(str(self.c2), "[Square] (2) 3/0 - 2")
+        self.assertEqual(str(self.c3), "[Square] (3) 4/5 - 3")
+        self.assertEqual(str(self.c4), "[Square] (4) 6/7 - 5")
+        self.assertEqual(str(self.c5), "[Square] (10) 8/9 - 7")
 
     def test_display_x_y(self):
         """tesing display x-y"""
