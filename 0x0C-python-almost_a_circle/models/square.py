@@ -25,36 +25,26 @@ class Square(Rectangle):
 
     def __str__(self):
         """informal string representation of the square"""
-        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id, self.x,
-                                                         self.y, self.width)
+        string = "[Square] ({:d}) {:d}/{:d} - {:d}"
+        string = string.format(self.id, self.x, self.y, self.width)
+        return string
 
     def update(self, *args, **kwargs):
         """update attributes"""
-        if len(args):
-            for i, a in enumerate(args):
-                if i == 0:
-                    self.id = a
-                elif i == 1:
-                    self.size = a
-                elif i == 2:
-                    self.x = a
-                elif i == 3:
-                    self.y = a
-        else:
-            if "id" in kwargs:
-                self.id = kwargs["id"]
-            if "size" in kwargs:
-                self.size = kwargs["size"]
-            if "x" in kwargs:
-                self.x = kwargs["x"]
-            if "y" in kwargs:
-                self.y = kwargs["y"]
+        args_list = ["id", "width", "x", "y"]
+        if args and args[0] is not None:
+            if len(args) > len(args_list):
+                max_len = len(args_list)
+            else:
+                max_len = len(args)
+            for i in range(max_len):
+                setattr(self, args_list[i], args[i])
+        elif kwargs is not None:
+            for key in kwargs:
+                setattr(self, key, kwargs[key])
 
     def to_dictionary(self):
         """dictionary representation of a Square"""
-        d = {}
-        d["id"] = self.id
-        d["size"] = self.size
-        d["x"] = self.x
-        d["y"] = self.y
-        return d
+        key_list = ["id", "size", "x", "y"]
+        value_list = [self.id, self.width, self.x, self.y]
+        return dict(zip(key_list, value_list))
