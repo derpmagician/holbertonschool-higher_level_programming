@@ -4,7 +4,7 @@
 const myargs = process.argv.slice(2);
 const mylength = myargs.length;
 
-function compareN(a, b) {
+function compareN (a, b) {
   return b - a;
 }
 
