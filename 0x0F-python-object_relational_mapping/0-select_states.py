@@ -11,15 +11,18 @@ if __name__ == '__main__':
     Access to the database and get the states
     from the database.
     """
-    conn = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                         passwd=argv[2], db=argv[3])
+    conn = MySQLdb.connect(host="localhost",
+                           user=argv[1],
+                           port=3306,
+                           passwd=argv[2],
+                           db=argv[3])
 
-    curs = conn.cursor()
+    cursor = conn.cursor()
     sql = "SELECT * FROM states ORDER BY states.id ASC"
-    curs.execute(sql)
+    cursor.execute(sql)
     rows = cur.fetchall()
 
     for row in rows:
         print(row)
-    curs.close()
+    cursor.close()
     conn.close()
