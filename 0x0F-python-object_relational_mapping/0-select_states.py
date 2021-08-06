@@ -20,7 +20,7 @@ if __name__ == '__main__':
     cursor = conn.cursor()
     sql = "SELECT * FROM states ORDER BY states.id ASC"
     cursor.execute(sql)
-    rows = cur.fetchall()
+    rows = cursor.fetchall()
 
     for row in rows:
         print(row)
