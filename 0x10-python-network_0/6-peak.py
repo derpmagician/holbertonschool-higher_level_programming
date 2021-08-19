@@ -8,7 +8,8 @@ def find_peak(list_of_integers):
     """ Finds a peak in a list of unsorted integers. """
 
     my_list = list_of_integers
-    l = 0; r = len(my_list) - 1
+    l = 0
+    r = len(my_list) - 1
 
     if not my_list:
         return None
@@ -16,7 +17,7 @@ def find_peak(list_of_integers):
     while (l < r):
         center = (l + r) // 2
         if my_list[center] < my_list[center + 1]:
-            l  = center + 1
+            l = center + 1
         else:
             r = center
 
