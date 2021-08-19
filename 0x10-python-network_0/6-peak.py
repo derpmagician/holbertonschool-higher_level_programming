@@ -20,6 +20,6 @@ def find_peak(list_of_integers):
         else:
             r = center
 
-    sreturn my_list[l]
+    return my_list[l]
 
 
