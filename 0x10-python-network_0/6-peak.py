@@ -22,5 +22,3 @@ def find_peak(list_of_integers):
             r = center
 
     return my_list[l]
-
-
