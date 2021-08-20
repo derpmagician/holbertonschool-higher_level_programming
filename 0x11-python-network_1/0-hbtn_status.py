@@ -7,7 +7,8 @@ from urllib.request import Request, urlopen
 
 
 if __name__ == "__main__":
-    req = Request('https://intranet.hbtn.io/status')
+    url = "https://intranet.hbtn.io/status"
+    req = Request(url)
 
     with urlopen(req) as res:
         content = res.read()
