@@ -2,13 +2,16 @@
 // Prints all characters of a Star Wars movie:
 
 const request = require('request');
-const char_api = process.argv[2]
-const starWarsUri = `https://swapi-api.hbtn.io/api/films/${char_api}`;
+const charApi = process.argv[2];
+const url = `https://swapi-api.hbtn.io/api/films/${charApi}`;
 
-request(starWarsUri, function (error, response, body) {
+request(url, function (error, response, body) {
+  if (error) {
+    console.log(error);
+  }
   const characters = JSON.parse(body).characters;
 
-  for (let char in characters) {
+  for (const char in characters) {
     request(characters[char], function (_err, _res, _body) {
       console.log(JSON.parse(_body).name);
     });
